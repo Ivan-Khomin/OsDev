@@ -162,7 +162,7 @@ disk_read:
     mov ah, 02h
     mov di, 3                                       ; retry count
 
-.loop:
+.retry:
     pusha                                           ; save all registers, we don't know what bios modifies
     stc                                             ; set carry flag, some BIOS'es don't set it
     int 13h                                         ; carry flag cleared = success 
@@ -174,7 +174,7 @@ disk_read:
 
     dec di
     test di, di
-    jnz .loop
+    jnz .retry
 
 .fall:
     ; all attempts are exhausted
