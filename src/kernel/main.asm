@@ -1,10 +1,16 @@
-org 0x7C00
+org 0x0
 bits 16
 
 %define ENDL 0xD, 0xA
 
 start:
-    jmp main
+    ; print message
+    mov si, msg_hello
+    call puts
+
+.halt:
+    cli
+    hlt
 
 ;
 ; Print function
@@ -32,26 +38,4 @@ puts:
     pop si
     ret
 
-main:
-    ; setup data segments
-    mov ax, 0
-    mov ds, ax
-    mov es, ax
-
-    ; setup stack segments
-    mov ss, ax
-    mov sp, 0x7C00
-
-    ; print message
-    mov si, msg_hello
-    call puts
-
-    hlt
-
-.halt:
-    jmp .halt
-
-msg_hello: db 'Hello world from kernel!', ENDL, 0
-
-times 510-($-$$) db 0
-dw 0AA55h
+msg_hello: db 'Hello world from KERNEL!', ENDL, 0
