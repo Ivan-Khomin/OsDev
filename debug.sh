@@ -1,1 +1,1 @@
-bochs -f bochs_config -debugger
+bochs -f bochs_config
