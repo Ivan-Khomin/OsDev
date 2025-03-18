@@ -362,8 +362,8 @@ msg_kernel_not_found:   db 'KERNEL.BIN file not found!', ENDL, 0
 file_kernel_bin:        db 'KERNEL  BIN'
 kernel_cluster:         dw 0
 
-KERNEL_LOAD_SEGMENT     equ 0x2000
-KERNEL_LOAD_OFFSET      equ 0
+KERNEL_LOAD_SEGMENT:    equ 0x2000
+KERNEL_LOAD_OFFSET:     equ 0
 
 times 510-($-$$) db 0
 dw 0AA55h
