@@ -2,7 +2,7 @@ bits 16
 
 section _ENTRY class=CODE
 
-extern _cstart_
+extern _start
 global entry
 
 entry:
@@ -16,7 +16,7 @@ entry:
     ; Expect boot device in dl, send it as argument to cstart function
     xor dh, dh
     push dx
-    call _cstart_
+    call _start
 
     cli
     hlt
