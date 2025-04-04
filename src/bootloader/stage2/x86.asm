@@ -2,6 +2,9 @@ bits 16
 
 section _TEXT class=CODE
 
+;
+; void _cdecl x86_div64_32(uint64_t dividend, uint32_t divisor, uint64_t* quotientOut, uint32_t* remaiderOut);
+;
 global _x86_div64_32
 _x86_div64_32:
     ; Make new call frame
